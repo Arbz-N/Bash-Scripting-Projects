@@ -4,7 +4,7 @@
 # Purpose: Send alert if disk usage > 80%
 #=========================================
 
-THRESHOLD=80
+THRESHOLD=70
 USAGE=$(df / | grep / | awk '{print $5}' | sed 's/%//')
 
 if [ "$USAGE" -gt "$THRESHOLD" ]; then
