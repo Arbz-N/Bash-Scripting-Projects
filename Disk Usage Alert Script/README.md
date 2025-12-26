@@ -28,8 +28,8 @@ awk
 sed
 grep
 
-Basic user permissions
-
+Basic user permission
+configure mail in machine 
 No root access required for read-only disk checks
 
 (Optional) Cron service
