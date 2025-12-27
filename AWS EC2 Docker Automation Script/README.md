@@ -1,12 +1,5 @@
 # AWS EC2 Docker Automation Script
 
-[![Bash Script](https://img.shields.io/badge/Script-Bash-informational)](https://www.gnu.org/software/bash/)
-[![AWS CLI](https://img.shields.io/badge/AWS-CLI-blue)](https://aws.amazon.com/cli/)
-[![Docker](https://img.shields.io/badge/Docker-Container-blue)](https://www.docker.com/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-
----
-
 ## Overview
 This project provides a **Bash script** to automate the deployment of an AWS EC2 instance and launch a Docker container on it. It allows developers and DevOps engineers to quickly spin up an EC2 instance, SSH into it, and run any Docker image without manually performing the steps.
 
