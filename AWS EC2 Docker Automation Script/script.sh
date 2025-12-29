@@ -42,7 +42,9 @@ launch_instance_ssh_and_run_docker() {
 
     ssh -i YOUR_KEY_FILE.pem \
         -o StrictHostKeyChecking=no \
-        ubuntu@"$public_dns"
+        ubuntu@"$public_dns"  #change ubuntu to your username
+
+    echo "SSH connection established."
 }
 
 # ================================
