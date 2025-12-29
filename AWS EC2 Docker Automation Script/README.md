@@ -1,7 +1,8 @@
 # AWS EC2 Launch & SSH Automation Script
 
 ## Overview
-This project automates the process of launching an **AWS EC2 instance**, waiting for it to become available, retrieving its **public DNS**, and then **SSH-ing into the instance automatically**.
+This project automates the process of launching an **AWS EC2 instance**, waiting for it to become available, retrieving its **public DNS**, 
+and then **SSH-ing into the instance automatically**.
 
 The script is useful for DevOps engineers and cloud learners who want to quickly spin up EC2 instances for testing, Docker setup, or hands-on practice without manually using the AWS Console.
 
