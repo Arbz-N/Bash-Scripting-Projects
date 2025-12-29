@@ -29,7 +29,7 @@ fi
 aws_region=$1
 aws_service=$2
 
-# Validate service
+# Validate service (it is optional)
 if [[ ! " ${services[*]} " =~ " $aws_service " ]]; then
   echo "Invalid service. Supported services: ${services[*]}"
   exit 1
