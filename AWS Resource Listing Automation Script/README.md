@@ -1,7 +1,9 @@
 # AWS Resource Listing Automation Script
 
 ## Overview
-This project contains a Bash script to automate the process of listing AWS resources for a specified service and region. It supports a wide range of AWS services including EC2, RDS, S3, CloudFront, VPC, IAM, Route53, CloudWatch, CloudFormation, Lambda, SNS, SQS, DynamoDB, and EBS. The script is designed to help cloud engineers and developers quickly gather resource information without manually logging into the AWS console.
+This project contains a Bash script to automate the process of listing AWS resources for a specified service and region. 
+It supports a wide range of AWS services including EC2, RDS, S3, CloudFront, VPC, IAM, Route53, CloudWatch, CloudFormation, Lambda, SNS, SQS, DynamoDB, and EBS. 
+The script is designed to help cloud engineers and developers quickly gather resource information without manually logging into the AWS console.
 
 ## Prerequisites
 Before running the script, ensure you have the following installed and configured:
@@ -49,3 +51,4 @@ Notes
 The
 Output is suitable for auditing, reporting, or CI/CD pipelines.
 For extended automation, the script can be integrated with cron jobs or DevOps pipelines.
+
