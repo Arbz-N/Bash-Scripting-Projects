@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#to ensure that expected args are passed correctly
 helper() {
     local expected_args=2
 

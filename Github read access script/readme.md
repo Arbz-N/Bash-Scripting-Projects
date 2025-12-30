@@ -37,18 +37,17 @@ Run the script by passing the repository owner and repository name as arguments:
 Example:
 ./github_read_access_audit.sh octocat hello-world
 
+
 Project Explanation
-Project Explanation
+
 1. Argument Validation
 
 The helper() function ensures that exactly two arguments are passed:
-
-Repository owner
-
-Repository name
-
+    Repository owner
+    Repository name
 If the argument count is incorrect, the script exits with a clear usage message.
-1. GitHub API Configuration
+
+2. GitHub API Configuration
 
 The script uses the base GitHub API endpoint:
 
@@ -57,7 +56,7 @@ https://api.github.com
 
 All requests are made using authenticated API calls to ensure access to private repositories (if permitted).
 
-2. Authentication Handling
+3. Authentication Handling
 
 Authentication is performed using Basic Auth with:
 
@@ -69,12 +68,12 @@ Sensitive credentials are referenced via placeholders:
 [GITHUB_USERNAME]
 [GITHUB_TOKEN]
 
-3. GitHub API GET Function
+4. GitHub API GET Function
 
 A reusable function sends authenticated GET requests to the GitHub API endpoints using curl.
 This keeps the script modular and easy to extend for additional API calls.
 
-4. Listing Users with Read Access
+5. Listing Users with Read Access
 
 The script queries the following endpoint:
 repos/{owner}/{repo}/collaborators
@@ -83,7 +82,7 @@ permissions.pull == true
 
 This ensures only users with read access are listed.
 
-5. Output Handling
+6. Output Handling
 
 If users with read access exist, their GitHub usernames are displayed.
 If no such users are found, a clear message is printed.
