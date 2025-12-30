@@ -79,3 +79,6 @@ If users with read access exist, their GitHub usernames are displayed.
 If no such users are found, a clear message is printed.
 Output is human-readable and suitable for auditing or reporting purposes.
 
+this script only works if you are:
+the repository owner, OR
+a collaborator / organization member with sufficient permissions.
