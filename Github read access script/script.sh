@@ -1,5 +1,14 @@
 #!/bin/bash
 
+helper() {
+    local expected_args=2
+
+    if [ "$#" -ne "$expected_args" ]; then
+        echo "Usage: $0 <repo_owner> <repo_name>"
+        exit 1
+    fi
+}
+
 API_URL="https://api.github.com"
 
 # GitHub username and personal access token
@@ -35,7 +44,7 @@ function list_users_with_read_access {
     fi
 }
 
-# Main script
+
 
 echo "Listing users with read access to ${REPO_OWNER}/${REPO_NAME}..."
 list_users_with_read_access

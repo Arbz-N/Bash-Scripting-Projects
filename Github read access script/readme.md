@@ -38,6 +38,16 @@ Example:
 ./github_read_access_audit.sh octocat hello-world
 
 Project Explanation
+Project Explanation
+1. Argument Validation
+
+The helper() function ensures that exactly two arguments are passed:
+
+Repository owner
+
+Repository name
+
+If the argument count is incorrect, the script exits with a clear usage message.
 1. GitHub API Configuration
 
 The script uses the base GitHub API endpoint:
