@@ -10,7 +10,6 @@ that interacts with the **GitHub REST API** to identify users who have **read (p
 ## Prerequisites
 Before running this script, ensure the following tools and configurations are in place:
 
-- **Linux / macOS environment**
 - **Bash shell**
 - **curl** (for API requests)
 - **jq** (for JSON parsing)
