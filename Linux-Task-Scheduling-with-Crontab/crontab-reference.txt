@@ -1,0 +1,55 @@
+# ============================================
+# CRONTAB PATTERNS REFERENCE
+# MIN HOUR DOM MON DOW COMMAND
+# ============================================
+
+# Har minute
+* * * * * /script.sh
+
+# Every 5 minute
+*/5 * * * * /script.sh
+
+# Every 15 minute
+*/15 * * * * /script.sh
+
+# Every hour
+0 * * * * /script.sh
+
+# Every day 6 in the morning
+0 6 * * * /script.sh
+
+# Every day 33 at night
+0 3 * * * /script.sh
+
+# Every day 4:30 AM
+30 4 * * * /script.sh
+
+# Every (Monday) at 8 PM
+0 20 * * 1 /script.sh
+
+# Every Sunday midnight
+0 0 * * 0 /script.sh
+
+# Every month on 15 midnight
+0 0 15 * * /script.sh
+
+# Only weekdays (Mon-Fri) in the morning 9
+0 9 * * 1-5 /script.sh
+
+# First ady of every month
+0 0 1 * * /script.sh
+
+# On January 1
+0 0 1 1 * /script.sh
+
+# On every reboot
+@reboot /script.sh
+
+# Every day on midnight
+@daily /script.sh
+
+# Every weekend
+@weekly /script.sh
+
+# Har Month
+@monthly /script.sh
