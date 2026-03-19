@@ -1,6 +1,5 @@
 # ============================================
 # CRONTAB PATTERNS REFERENCE
-# MIN HOUR DOM MON DOW COMMAND
 # ============================================
 
 # Har minute
