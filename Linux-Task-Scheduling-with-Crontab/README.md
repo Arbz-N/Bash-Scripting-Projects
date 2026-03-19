@@ -15,7 +15,7 @@
 
 
 
-Project Structure
+## Project Structure:
 
     CrontabLab/
     │
@@ -25,7 +25,7 @@ Project Structure
     │
     └── README.md
 
-Prerequisites
+## Prerequisites:
 
     Requirement                Check
     Linux                     (Ubuntu/Debian)Any machine
@@ -37,7 +37,7 @@ Prerequisites
     sudo systemctl enable cron
     sudo systemctl start cron
 
-Architecture
+## Architecture:
 
     Cron Daemon (/var/spool/cron/crontabs/)
       │
@@ -63,7 +63,7 @@ Architecture
       ├── backup.log
       └── cleanup.log
 
-Task 1 — Setup Scripts
+### Task 1 — Setup Scripts:
 
     mkdir -p ~/automation-lab/logs
     cd ~/automation-lab
@@ -92,7 +92,7 @@ Task 1 — Setup Scripts
     # View logs
     cat ~/automation-lab/logs/health.log
 
-Task 2 — Configure Crontab
+### Task 2 — Configure Crontab:
 
     bash# View current crontab
     crontab -l
@@ -132,7 +132,7 @@ Task 2 — Configure Crontab
     # Ya:
     sudo journalctl -u cron -f
 
-Task 3 — Quick Test (1 Minute)
+### Task 3 — Quick Test (1 Minute):
 
     
     bashNEXT_MIN=$(date -d "+1 minute" '+%M')
@@ -154,7 +154,7 @@ Task 3 — Quick Test (1 Minute)
     echo "Test entry removed "
 
 
-Crontab Syntax Reference
+### Crontab Syntax Reference:
 
         ┌───────────── minute      (0–59)
         │ ┌─────────── hour        (0–23)
@@ -166,7 +166,7 @@ Crontab Syntax Reference
     
     See crontab-reference.txt for the full pattern cheat sheet.
 
-Cleanup
+### Cleanup:
 
     bash# Remove crontab entries
     crontab -l | grep -v "automation-lab" | crontab -
@@ -176,6 +176,7 @@ Cleanup
     rm -f /tmp/backups/etc-backup-*.tar.gz
     rm -f /tmp/cron-test.log
 
-License
+### License:
+
 
     This project is licensed under the MIT License.
