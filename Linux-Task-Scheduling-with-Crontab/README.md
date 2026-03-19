@@ -60,3 +60,85 @@ Architecture
       ├── backup.log
       └── cleanup.log
 
+Task 1 — Setup Scripts
+bashmkdir -p ~/automation-lab/logs
+cd ~/automation-lab
+
+# Copy scripts here
+chmod +x backup.sh cleanup-logs.sh health-check.sh
+Test Scripts Manually
+Always test before scheduling with crontab.
+bashecho "=== Backup Script ==="
+bash backup.sh
+# [2026-03-18 10:00:01] INFO: Backup started
+# [2026-03-18 10:00:02] INFO: Backup successful ✅
+
+echo "=== Health Check ==="
+bash health-check.sh
+# [2026-03-18 10:00:01] INFO: CPU Usage: 12%
+# [2026-03-18 10:00:01] INFO: Memory Usage: 45%
+# [2026-03-18 10:00:01] INFO: Disk Usage: 38%
+# [2026-03-18 10:00:01] INFO: Status: OK
+# [2026-03-18 10:00:01] INFO: Health check completed ✅
+
+echo "=== Log Cleanup ==="
+bash cleanup-logs.sh
+
+# View logs
+cat ~/automation-lab/logs/health.log
+
+📅 Task 2 — Configure Crontab
+bash# View current crontab
+crontab -l
+
+# Edit
+crontab -e
+Add these entries:
+cron# ============================================
+# AUTOMATION-LAB CRONTAB
+# ============================================
+
+# Every 15 minutes — health check
+*/15 * * * * /root/automation-lab/health-check.sh
+
+# Daily at 3 AM — backup
+0 3 * * * /root/automation-lab/backup.sh
+
+# Every Sunday midnight — log cleanup
+0 0 * * 0 /root/automation-lab/cleanup-logs.sh
+
+# Weekdays at 9 AM — daily report
+0 9 * * 1-5 /root/automation-lab/health-check.sh >> /root/automation-lab/logs/daily-report.log 2>&1
+
+# On every machine reboot
+@reboot /root/automation-lab/health-check.sh
+Verify
+bashcrontab -l
+# All entries visible ✅
+
+sudo systemctl status cron
+# Active: active (running) ✅
+
+# Watch cron execution in real time
+sudo tail -f /var/log/syslog | grep CRON
+# Ya:
+sudo journalctl -u cron -f
+
+🧪 Task 3 — Quick Test (1 Minute)
+bashNEXT_MIN=$(date -d "+1 minute" '+%M')
+CURR_HOUR=$(date '+%H')
+
+# Add test entry
+(crontab -l; \
+  echo "$NEXT_MIN $CURR_HOUR * * * echo 'CRON TEST OK' >> /tmp/cron-test.log") \
+  | crontab -
+
+echo "Waiting 70 seconds..."
+sleep 70
+
+cat /tmp/cron-test.log
+# CRON TEST OK ✅
+
+# Remove test entry
+crontab -l | grep -v "cron-test" | crontab -
+echo "Test entry removed ✅"
