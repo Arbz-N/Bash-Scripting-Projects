@@ -4,6 +4,9 @@
 #Daily Backup Script
 #=======================================
 
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+
 LOG_FILE="$HOME/automation-lab/logs/backup.log"
 BACKUP_DIR="/tmp/backups"
 DATE=$(DATE '%Y-%m-%d_%H-%M-%S')
