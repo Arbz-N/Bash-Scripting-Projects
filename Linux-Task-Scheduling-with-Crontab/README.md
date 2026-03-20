@@ -10,7 +10,6 @@
     Health check with CPU / Memory / Disk thresholds and ALERT status
     Backup with automatic 7-day retention cleanup
     Log cleanup with disk space before/after reporting
-    Quick 1-minute cron test method included
     Full crontab pattern reference sheet
 
 
@@ -131,27 +130,6 @@
     sudo tail -f /var/log/syslog | grep CRON
     # Ya:
     sudo journalctl -u cron -f
-
-### Task 3 — Quick Test (1 Minute):
-
-    
-    bashNEXT_MIN=$(date -d "+1 minute" '+%M')
-    CURR_HOUR=$(date '+%H')
-    
-    # Add test entry
-    (crontab -l; \
-      echo "$NEXT_MIN $CURR_HOUR * * * echo 'CRON TEST OK' >> /tmp/cron-test.log") \
-      | crontab -
-    
-    echo "Waiting 70 seconds..."
-    sleep 70
-    
-    cat /tmp/cron-test.log
-    # CRON TEST OK 
-    
-    # Remove test entry
-    crontab -l | grep -v "cron-test" | crontab -
-    echo "Test entry removed "
 
 
 ### Crontab Syntax Reference:
